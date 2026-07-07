@@ -1,0 +1,35 @@
+[
+    {
+        "question": "What is the return policy for electronics?",
+        "expected_mention": "3 days"
+    },
+    {
+        "question": "What is the status of order ORD1003?",
+        "expected_mention": "Processing"
+    },
+    {
+        "question": "Can I return order ORD1001?",
+        "expected_mention": "Electronics",
+        "comment": "Delivered 2026-06-28, today 2026-07-05, should be outside 3-day window"
+    },
+    {
+        "question": "Do you ship to USA?",
+        "expected_mention": "not ship internationally"
+    },
+    {
+        "question": "What is the status of ORD9999?",
+        "expected_mention": "couldn't find"
+    },
+    {
+        "question": "How can I get a GST invoice?",
+        "expected_mention": "download from the order details page"
+    },
+    {
+        "question": "Is COD available for an order of 6000 INR?",
+        "expected_mention": "5000"
+    },
+    {
+        "question": "What is the status of my yoga mat order ORD1005?",
+        "expected_mention": "Confirmed"
+    }
+]
