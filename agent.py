@@ -2,8 +2,7 @@ import os
 import json
 import re
 import time
-# pyrefly: ignore [missing-import]
-from openai import OpenAI, RateLimitError
+from groq import Groq, RateLimitError
 from dotenv import load_dotenv
 from rag_system import RAGSystem
 from order_lookup import OrderLookup
@@ -14,17 +13,16 @@ load_dotenv()
 
 class SupportAgent:
     def __init__(self):
-        self.client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key=os.getenv("OPENROUTER_API_KEY"),
+        self.client = Groq(
+            api_key=os.getenv("GROQ_API_KEY"),
         )
         self.rag = RAGSystem("sample_data/docs/")
         self.orders = OrderLookup("sample_data/orders.csv")
-        self.model = "nousresearch/hermes-3-llama-3.1-405b:free"
-        # Tried in order if self.model is congested/rate-limited upstream on OpenRouter.
+        self.model = "llama-3.3-70b-versatile"
+        # Fallback models available on Groq
         self._fallback_models = [
-            "meta-llama/llama-3.3-70b-instruct:free",
-            "qwen/qwen3-next-80b-a3b-instruct:free",
+            "llama-3.1-70b-versatile",
+            "mixtral-8x7b-32768",
         ]
         self.messages = [
         {
@@ -36,12 +34,7 @@ class SupportAgent:
         self.last_order_id = None
 
     def _chat_completion(self, max_retries_per_model: int = 2, **kwargs):
-        """Wrap client.chat.completions.create with retry + model fallback.
-        Short waits (a few seconds, typically OpenRouter's per-minute cap) are
-        worth sleeping through on the same model. Long waits (tens of seconds,
-        typically an upstream provider like Venice being congested on one
-        specific free model) are not worth blocking on - fall through to the
-        next model in self._fallback_models instead."""
+        """Wrap client.chat.completions.create with retry + model fallback."""
         requested_model = kwargs.pop("model", self.model)
         models_to_try = [requested_model] + [
             m for m in self._fallback_models if m != requested_model
@@ -56,11 +49,11 @@ class SupportAgent:
                     last_error = e
                     print(f"Rate limit on {model_name}: {e}")
                     wait_seconds = self._parse_retry_wait(e)
-                    if wait_seconds <= 6:
+                    if wait_seconds <= 10:
                         print(f"Waiting {wait_seconds:.0f}s, retrying {model_name}...")
                         time.sleep(wait_seconds)
                     else:
-                        print(f"{model_name} congested ({wait_seconds:.0f}s) - trying next model")
+                        print(f"{model_name} rate limited ({wait_seconds:.0f}s) - trying next model")
                         break  # skip remaining attempts on this model, move on
 
         if last_error is None:
@@ -69,26 +62,14 @@ class SupportAgent:
 
     @staticmethod
     def _parse_retry_wait(error: RateLimitError) -> float:
-        """Extract the wait time from a rate-limit error, trying (in order):
-        1. OpenRouter's structured error body: error.metadata.retry_after_seconds
-        2. A "try again in Xm Ys" pattern in the message text (e.g. Groq)
-        3. A fixed fallback sized for OpenRouter's 20 req/min free-tier cap
-        """
-        try:
-            metadata = error.body["error"]["metadata"]
-            retry_after = metadata.get("retry_after_seconds")
-            if retry_after is not None:
-                return float(retry_after) + 1  # +1s buffer
-        except (AttributeError, KeyError, TypeError):
-            pass
-
+        """Extract the wait time from a Groq rate-limit error."""
         match = re.search(r"try again in (?:(\d+)m)?([\d.]+)s", str(error))
         if match:
             minutes = int(match.group(1)) if match.group(1) else 0
             seconds = float(match.group(2))
             return minutes * 60 + seconds + 1
 
-        return 4.0  # ~20 req/min -> 3s spacing, +buffer
+        return 5.0
         
     def route_question(self, query: str) -> dict:
         prompt = f"""
@@ -119,6 +100,8 @@ class SupportAgent:
             }
         ]
 
+        # Note: Groq supports response_format but it must be enabled specifically for some models.
+        # Llama 3 models support it.
         response = self._chat_completion(
             model=self.model,
             messages=messages,
