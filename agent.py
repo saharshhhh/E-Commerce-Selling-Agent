@@ -20,11 +20,11 @@ class SupportAgent:
         )
         self.rag = RAGSystem("sample_data/docs/")
         self.orders = OrderLookup("sample_data/orders.csv")
-        self.model = "meta-llama/llama-3.3-70b-instruct:free"
+        self.model = "nousresearch/hermes-3-llama-3.1-405b:free"
         # Tried in order if self.model is congested/rate-limited upstream on OpenRouter.
         self._fallback_models = [
-            "openai/gpt-oss-120b:free",
-            "nvidia/nemotron-3-super-120b-a12b:free",
+            "meta-llama/llama-3.3-70b-instruct:free",
+            "qwen/qwen3-next-80b-a3b-instruct:free",
         ]
         self.messages = [
         {
