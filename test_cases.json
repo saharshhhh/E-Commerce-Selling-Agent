@@ -39,7 +39,7 @@
     },
     {
         "question": "Can I still return order ORD1004?",
-        "expected_mention": "not eligible",
+        "expected_mention": "no longer eligible",
         "comment": "Electronics, ordered 2026-06-25, today 2026-07-08, deadline was 2026-06-28 — window closed 10 days ago"
     }
 ]
