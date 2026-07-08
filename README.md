@@ -9,6 +9,7 @@ This project implements an AI support agent that combines Retrieval-Augmented Ge
 - **Similarity Search**: Cosine Similarity
 - **Order Tracking**: Deterministic lookup for order status and details from CSV data.
 - **Complex Reasoning**: Handles "chaining" queries, such as checking return eligibility based on order date and category-specific policies.
+- **Memory**: The chatbot stores a short term memory of the session to make it user friendly
 
 ## Setup
 
