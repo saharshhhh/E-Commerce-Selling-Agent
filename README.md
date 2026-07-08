@@ -6,7 +6,7 @@ This project implements an AI support agent that combines Retrieval-Augmented Ge
 
 - **Intelligent Routing**: Uses Groq LLM to route queries between knowledge retrieval, order data lookup, or a combination of both.
 - **RAG System**: Efficient semantic search over policy documents using `sentence-transformers`.
-- **Similarit Search**: Cosine Similarity
+- **Similarity Search**: Cosine Similarity
 - **Order Tracking**: Deterministic lookup for order status and details from CSV data.
 - **Complex Reasoning**: Handles "chaining" queries, such as checking return eligibility based on order date and category-specific policies.
 
