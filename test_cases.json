@@ -31,5 +31,15 @@
     {
         "question": "What is the status of my yoga mat order ORD1005?",
         "expected_mention": "Confirmed"
+    },
+    {
+        "question": "I am Vikram and I want to return my protien powder.",
+        "expected_mention": "not eligible",
+        "comment": "Name mismatch for the order"
+    },
+    {
+        "question": "Can I still return order ORD1004?",
+        "expected_mention": "not eligible",
+        "comment": "Electronics, ordered 2026-06-25, today 2026-07-08, deadline was 2026-06-28 — window closed 10 days ago"
     }
 ]

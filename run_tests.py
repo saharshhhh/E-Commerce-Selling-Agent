@@ -12,11 +12,14 @@ def run_tests():
     for case in test_cases:
         question = case['question']
         expected = case['expected_mention']
+        if isinstance(expected, str):
+            expected = [expected]
+
         print(f"Question: {question}")
         actual = agent.ask(question)
         print(f"Actual: {actual[:100]}...")
 
-        passed = expected.lower() in actual.lower()
+        passed = any(phrase.lower() in actual.lower() for phrase in expected)
         print(f"Passed: {passed}")
         print("-" * 20)
 

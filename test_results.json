@@ -1,50 +1,82 @@
 [
   {
     "question": "What is the return policy for electronics?",
-    "expected_mention": "3 days",
-    "actual_answer": "The return window for electronics is 3 days due to manufacturer terms, provided they are unused and in original packaging.",
+    "expected_mention": [
+      "3 days"
+    ],
+    "actual_answer": "Electronics have a shorter return window of 3 days, provided they are unused and in original packaging. Additionally, if an item arrives damaged or defective, electronics are eligible for free return pickup and full refund or replacement, regardless of the 3-day return window.",
     "passed": true
   },
   {
     "question": "What is the status of order ORD1003?",
-    "expected_mention": "Processing",
-    "actual_answer": "The status of your order ORD1003 is currently \"Processing\". Your Non-stick Pan Set order of \u20b91799, placed on 2026-07-01, is being processed. You will receive an update once it's shipped.",
+    "expected_mention": [
+      "Processing"
+    ],
+    "actual_answer": "The status of order ORD1003 is currently \"Processing\".",
     "passed": true
   },
   {
     "question": "Can I return order ORD1001?",
-    "expected_mention": "Electronics",
-    "actual_answer": "To determine if you can return order ORD1001, let's review the relevant policy information and your order details.\n\n1. **Order Status and Delivery Date**: Your order (ORD1001) is marked as \"Delivered\" with an order date of \"2026-06-28\". Today's date is \"2026-07-05\", which means the order was delivered 7 days ago.\n\n2. **Product Category and Conditions for Return**: The product in question is \"Wireless Earbuds X200\" under the category \"Electronics\". The policy states that products must be unused, unwashed, and with original tags/packaging intact to be eligible for return. However, it does not specify a time window for returns. Since there's no mention of the product being marked \"Final Sale\", we can proceed under the assumption that it's returnable if it meets the other criteria.\n\n3. **Damaged or Defective Items**: The policy allows for returns of damaged or defective items within 48 hours of delivery with photo evidence. Since 7 days have passed since your delivery, this option is no longer applicable unless you're just now noticing damage and can provide a reasonable explanation for the delay.\n\nGiven these points, for a standard return:\n- The product must be unused and in its original condition.\n- You must have the original invoice.\n\nHowever, the policy does not explicitly state a return window for non-damaged or non-defective items. Given that it's been 7 days since delivery and assuming the product is not damaged or defective, it's unclear if you're still within the acceptable time frame for a return based solely on the information provided.\n\nTo proceed, I would recommend checking the following:\n- Ensure the product is in its original condition with all tags and packaging intact.\n- Have your original invoice ready.\n\nConsidering the lack of specific information on the return window for non-damaged items, I would suggest contacting our customer service directly to inquire about the possibility of returning your order. We will be able to provide a more detailed assessment based on our current policies and the specific circumstances of your order.\n\nWould you like to proceed with contacting our customer service for further assistance on returning order ORD1001?",
+    "expected_mention": [
+      "Electronics"
+    ],
+    "actual_answer": "Unfortunately, Ananya, you are not eligible to return order ORD1001. The product, Wireless Earbuds X200, is in the Electronics category, which has a shorter return window of 3 days. The order was delivered on 2026-06-28, and the return deadline was 2026-07-01. Since today is 2026-07-08, which is after the deadline, we cannot accept a return for this order.",
     "passed": true
   },
   {
     "question": "Do you ship to USA?",
-    "expected_mention": "not ship internationally",
-    "actual_answer": "I'm sorry, I don't have that information. However, according to the context, it is mentioned that \"We currently do not ship internationally.\"",
+    "expected_mention": [
+      "not ship internationally"
+    ],
+    "actual_answer": "I'm sorry, I don't have that information. \n\nHowever, the context does provide the information \"We currently do not ship internationally.\" It is likely that shipping to the USA is considered as international shipping.",
     "passed": true
   },
   {
     "question": "What is the status of ORD9999?",
-    "expected_mention": "couldn't find",
+    "expected_mention": [
+      "couldn't find"
+    ],
     "actual_answer": "I'm sorry, I couldn't find any order with ID ORD9999.",
     "passed": true
   },
   {
     "question": "How can I get a GST invoice?",
-    "expected_mention": "download from the order details page",
-    "actual_answer": "A GST invoice is available for download from the order details page for business purchases.",
-    "passed": true
+    "expected_mention": [
+      "download from the order details page"
+    ],
+    "actual_answer": "You can get a GST invoice by downloading it from the order details page for business purchases.",
+    "passed": false
   },
   {
     "question": "Is COD available for an order of 6000 INR?",
-    "expected_mention": "5000",
-    "actual_answer": "No, COD is not available for an order of 6000 INR, as it is only available for orders under \u20b95000.",
+    "expected_mention": [
+      "5000"
+    ],
+    "actual_answer": "COD is available for orders under \u20b95000 only. Therefore, COD is not available for an order of 6000 INR.",
     "passed": true
   },
   {
     "question": "What is the status of my yoga mat order ORD1005?",
-    "expected_mention": "Confirmed",
-    "actual_answer": "The status of your yoga mat order ORD1005 is \"Confirmed\" as of July 2, 2026. We will keep you updated on further updates. If you have any other questions, feel free to ask.",
+    "expected_mention": [
+      "Confirmed"
+    ],
+    "actual_answer": "Thank you for inquiring about your order. Your Yoga Mat order number ORD1005 has been confirmed. The order details as follows:\n\n- Order ID: ORD1005\n- Order Date: July 2, 2026\n- Product: Yoga Mat\n- Status: Confirmed\n\nOur team will process your order soon. You'll receive a shipping update and delivery confirmation as soon as the order shipped out.\n\nIf you have any questions or need further assistance, please feel free to reach out to us!",
+    "passed": true
+  },
+  {
+    "question": "I am Vikram and I want to return my protien powder.",
+    "expected_mention": [
+      "not eligible"
+    ],
+    "actual_answer": "I'm sorry, I don't have that information.",
+    "passed": false
+  },
+  {
+    "question": "Can I still return order ORD1004?",
+    "expected_mention": [
+      "not eligible"
+    ],
+    "actual_answer": "You ordered the \"Smartwatch Pro\" from our Electronics category. \n\nThe return window for Electronics products is 3 days from the date of delivery. In this case, the delivery date was 2026-06-25 and the return deadline was 2026-06-28. Since you're asking about your eligibility to return the order as of 2026-07-08, and the return deadline has already passed, the answer is no, you are not eligible to return order ORD1004.",
     "passed": true
   }
 ]
