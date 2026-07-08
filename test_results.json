@@ -4,7 +4,7 @@
     "expected_mention": [
       "3 days"
     ],
-    "actual_answer": "Electronics have a shorter return window of 3 days, provided they are unused and in original packaging. Additionally, if an item arrives damaged or defective, electronics are eligible for free return pickup and full refund or replacement, regardless of the 3-day return window.",
+    "actual_answer": "For electronics, the return window is 3 days due to manufacturer terms, provided they are unused and in original packaging.",
     "passed": true
   },
   {
@@ -12,7 +12,7 @@
     "expected_mention": [
       "Processing"
     ],
-    "actual_answer": "The status of order ORD1003 is currently \"Processing\".",
+    "actual_answer": "The status of your order ORD1003 is currently \"Processing\". Your Non-stick Pan Set order, placed on July 1, 2026, is being processed and will be updated soon. If you have any further questions, feel free to ask.",
     "passed": true
   },
   {
@@ -20,7 +20,7 @@
     "expected_mention": [
       "Electronics"
     ],
-    "actual_answer": "Unfortunately, Ananya, you are not eligible to return order ORD1001. The product, Wireless Earbuds X200, is in the Electronics category, which has a shorter return window of 3 days. The order was delivered on 2026-06-28, and the return deadline was 2026-07-01. Since today is 2026-07-08, which is after the deadline, we cannot accept a return for this order.",
+    "actual_answer": "For order ORD1001, which includes the Wireless Earbuds X200, a product categorized under Electronics, the return window is 3 days. Since the return window for Electronics is 3 days and the order was delivered, the return deadline was 2026-07-01. Unfortunately, as of today (2026-07-08), you are not eligible for a return because the 3-day return window has already closed.",
     "passed": true
   },
   {
@@ -28,7 +28,7 @@
     "expected_mention": [
       "not ship internationally"
     ],
-    "actual_answer": "I'm sorry, I don't have that information. \n\nHowever, the context does provide the information \"We currently do not ship internationally.\" It is likely that shipping to the USA is considered as international shipping.",
+    "actual_answer": "No, we do not ship to the USA. According to our policy, \"We currently do not ship internationally,\" and the USA is an international location.",
     "passed": true
   },
   {
@@ -44,15 +44,15 @@
     "expected_mention": [
       "download from the order details page"
     ],
-    "actual_answer": "You can get a GST invoice by downloading it from the order details page for business purchases.",
-    "passed": false
+    "actual_answer": "A GST invoice is available for download from the order details page for business purchases.",
+    "passed": true
   },
   {
     "question": "Is COD available for an order of 6000 INR?",
     "expected_mention": [
       "5000"
     ],
-    "actual_answer": "COD is available for orders under \u20b95000 only. Therefore, COD is not available for an order of 6000 INR.",
+    "actual_answer": "No, COD is not available for an order of 6000 INR, as it is only available for orders under \u20b95000.",
     "passed": true
   },
   {
@@ -60,7 +60,7 @@
     "expected_mention": [
       "Confirmed"
     ],
-    "actual_answer": "Thank you for inquiring about your order. Your Yoga Mat order number ORD1005 has been confirmed. The order details as follows:\n\n- Order ID: ORD1005\n- Order Date: July 2, 2026\n- Product: Yoga Mat\n- Status: Confirmed\n\nOur team will process your order soon. You'll receive a shipping update and delivery confirmation as soon as the order shipped out.\n\nIf you have any questions or need further assistance, please feel free to reach out to us!",
+    "actual_answer": "Your yoga mat order ORD1005 has been successfully placed and the current status is \"Confirmed\". We will keep you updated on further developments.",
     "passed": true
   },
   {
@@ -68,15 +68,15 @@
     "expected_mention": [
       "not eligible"
     ],
-    "actual_answer": "I'm sorry, I don't have that information.",
-    "passed": false
+    "actual_answer": "I'm happy to help you with your question, Vikram. However, I need to inform you that the order details I have show that the order is for a Yoga Mat, which belongs to the Fitness category. \n\nThe return window for the Fitness category is 7 days. Since the order was made on 2026-07-02, the return deadline would be 2026-07-09. \n\nAs of today (2026-07-08), you are not eligible for a return because the order status is still 'Confirmed' and not yet 'Delivered', which means the return window hasn't started. \n\nAlso, I would like to clarify that the product you mentioned, protein powder, does not match the product in your order details, which is a Yoga Mat. If you have any further questions or concerns, please feel free to ask.",
+    "passed": true
   },
   {
     "question": "Can I still return order ORD1004?",
     "expected_mention": [
       "not eligible"
     ],
-    "actual_answer": "You ordered the \"Smartwatch Pro\" from our Electronics category. \n\nThe return window for Electronics products is 3 days from the date of delivery. In this case, the delivery date was 2026-06-25 and the return deadline was 2026-06-28. Since you're asking about your eligibility to return the order as of 2026-07-08, and the return deadline has already passed, the answer is no, you are not eligible to return order ORD1004.",
-    "passed": true
+    "actual_answer": "For order ORD1004, you have purchased a Smartwatch Pro, which falls under the Electronics category. According to our policy, Electronics have a return window of 3 days. The return deadline for your order was 2026-06-28. Unfortunately, since today's date is 2026-07-08, you are no longer eligible for a return.",
+    "passed": false
   }
 ]
